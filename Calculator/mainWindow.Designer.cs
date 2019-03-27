@@ -370,6 +370,7 @@
             this.MaximumSize = new System.Drawing.Size(500, 700);
             this.MinimumSize = new System.Drawing.Size(250, 380);
             this.Name = "mainWindow";
+            this.RightToLeftLayout = true;
             this.Text = "Calculator";
             this.SizeChanged += new System.EventHandler(this.onSizeChg);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.onKeyDown);

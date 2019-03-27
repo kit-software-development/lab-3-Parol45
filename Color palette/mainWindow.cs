@@ -18,6 +18,7 @@ namespace Color_palette
             onScroll(this, new EventArgs());
         }
 
+        // Не знаю, как это комментировать
         private void onScroll(object sender, EventArgs e)
         {
             palette.BackColor = Color.FromArgb(redBar.Value, greenBar.Value, blueBar.Value);

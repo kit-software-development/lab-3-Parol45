@@ -44,7 +44,9 @@ namespace lab_3_Parol45
             {
                 if (Math.Abs(butX + halfButW - e.X) > halfButW)
                 {
-                    butX = butX + (butX - e.X < 0 ? -1 : 1);
+                    // Тут регулировать скорость кнопки (текущее - число area + 5, т. к. 
+                    // скорость бега кнопки напрямую зависит от частоты возникнования события MouseMove)
+                    butX = e.X + (butX - e.X < 0 ? -area - 5 - runningButton.Width : 5 + area);
                     if (butX + 2 * halfButW > ClientSize.Width)
                         butX = area / 5;
                     if (butX < 0)
@@ -52,7 +54,8 @@ namespace lab_3_Parol45
                 }
                 if (Math.Abs(butY + halfButH - e.Y) > halfButH)
                 {
-                    butY = butY + (butY - e.Y < 0 ? -1 : 1);
+                    // Тута тоже
+                    butY = e.Y + (butY - e.Y < 0 ? -area - 5 - runningButton.Height : 5 + area);
                     if (butY + 2 * halfButH > ClientSize.Height)
                         butY = area / 5;
                     if (butY < 0)
@@ -66,6 +69,7 @@ namespace lab_3_Parol45
         // Я не гений расчётов, поэтому кнопка съезжает слегка после постоянного усечения с float до int.
         // Т. к. нет отдельного события для нажатия на клавишу разворота на весь экран, 
         // пришлось изощриться с состояниями окна
+        // Не сделал через layout, потому что margin и padding элементов не задаются в процентах, удобнее самому
         private void onWindowResize(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Normal || WindowState == FormWindowState.Maximized)
